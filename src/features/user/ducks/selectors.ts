@@ -1,11 +1,11 @@
-import { RootState } from "../../../store/rootReducer";
 import { createSelector } from "reselect";
+import MyTypes from "MyTypes";
 
-const getIsLoggedIn = (state: RootState) => state.user.isLoggedIn;
+const getUser = (user: MyTypes.RootState['user']) => user;
 
 export const isNotLoggedIn = createSelector(
-  getIsLoggedIn,
-  isLoggedIn => {
-    return !isLoggedIn;
+  getUser,
+  user => {
+    return !user.isLoggedIn;
   }
 );

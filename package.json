@@ -50,6 +50,7 @@
     "@types/reselect": "^2.2.0",
     "@types/styled-components": "^4.1.15",
     "@types/webpack-env": "^1.13.9",
+    "@types/yup": "^0.26.13",
     "redux-devtools-extension": "^2.13.8"
   }
 }
