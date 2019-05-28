@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LayoutWrapper } from "./Layout.styles";
 import NavBar from "../NavBar/index";
-import CreateAccountForm from '../../../user/components/CreateAccountForm'
+import CreateAccountForm from "../../../user/components/CreateAccountForm";
+import { connect } from "react-redux";
+import { userActions, userSelectors } from "../../../user/ducks";
+import MyTypes from "MyTypes";
+import { bindActionCreators, Dispatch } from "redux";
 
-type ownProps = {};
+const mapStateToProps = (state: MyTypes.RootState) => ({
+  user: userSelectors.getUser(state.user)
+});
 
-const Layout: React.FC<ownProps> = () => (
-  <LayoutWrapper>
-    <NavBar />
-    <CreateAccountForm />
-  </LayoutWrapper>
-);
+const mapDispatchToProps = (dispatch: Dispatch<MyTypes.RootAction>) =>
+  bindActionCreators({ logUserIn: userActions.logUserIn }, dispatch);
 
-export default Layout;
+type DispatchProps = ReturnType<typeof mapDispatchToProps>;
+
+type ownProps = {} & ReturnType<typeof mapStateToProps> & DispatchProps;
+
+const Layout: React.FC<ownProps> = ({ user, logUserIn }) => {
+  useEffect(() => {
+    logUserIn();
+  }, [logUserIn]);
+
+  console.log("current User: ", user);
+
+  return (
+    <LayoutWrapper>
+      <NavBar />
+      <CreateAccountForm />
+    </LayoutWrapper>
+  );
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Layout);
