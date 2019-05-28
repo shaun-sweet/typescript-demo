@@ -10,7 +10,6 @@ export const StyledForm = styled.form<classes>`
   justify-content: center;
   align-items: center;
   padding-top: 3em;
-
   > div {
     width: 400px;
   }

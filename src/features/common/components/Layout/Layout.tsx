@@ -16,7 +16,9 @@ const mapDispatchToProps = (dispatch: Dispatch<MyTypes.RootAction>) =>
 
 type DispatchProps = ReturnType<typeof mapDispatchToProps>;
 
-type ownProps = {} & ReturnType<typeof mapStateToProps> & DispatchProps;
+type ConnectedProps = ReturnType<typeof mapStateToProps>
+
+type ownProps = {} & ConnectedProps & DispatchProps;
 
 const Layout: React.FC<ownProps> = ({ user, logUserIn }) => {
   useEffect(() => {
