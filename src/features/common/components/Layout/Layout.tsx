@@ -1,23 +1,15 @@
 import React from "react";
 import { LayoutWrapper } from "./Layout.styles";
-import LoginForm from "../../../user/components/LoginForm";
-import { connect } from "react-redux";
-import MyTypes from "MyTypes";
-import { userSelectors } from "../../../user/ducks";
+import NavBar from "../NavBar/index";
+import CreateAccountForm from '../../../user/components/CreateAccountForm'
 
-type ownProps = {} & ReturnType<typeof mapStateToProps>;
+type ownProps = {};
 
-const Layout: React.FC<ownProps> = ({ isUserNotLoggedIn }) => (
+const Layout: React.FC<ownProps> = () => (
   <LayoutWrapper>
-    {isUserNotLoggedIn && <LoginForm />}
-    This is a Layout omg
+    <NavBar />
+    <CreateAccountForm />
   </LayoutWrapper>
 );
 
-const mapStateToProps = (state: MyTypes.RootState) => {
-  return {
-    isUserNotLoggedIn: userSelectors.isNotLoggedIn(state.user)
-  };
-};
-
-export default connect(mapStateToProps)(Layout);
+export default Layout;

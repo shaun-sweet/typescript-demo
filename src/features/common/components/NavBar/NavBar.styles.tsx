@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
-export const NavBarWrapper = styled.div<{ color: string}>`
+
+export const NavBarWrapper = styled.nav`
   display: flex;
+  background: red;
 `;

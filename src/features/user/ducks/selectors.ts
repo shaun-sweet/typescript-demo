@@ -6,6 +6,6 @@ const getUser = (user: MyTypes.RootState['user']) => user;
 export const isNotLoggedIn = createSelector(
   getUser,
   user => {
-    return !user.isLoggedIn;
+    return !false;
   }
 );

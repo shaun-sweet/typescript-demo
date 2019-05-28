@@ -1,15 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { NavBarWrapper } from './NavBar.styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { NavBarWrapper } from "./NavBar.styles";
 
-type ownProps = {
-  displayText: string
-}
+type ownProps = {};
 
 const NavBar: React.FC<ownProps> = props => (
-  <NavBarWrapper color='red'>
-    This is a NavBar
-  </NavBarWrapper>
+  <NavBarWrapper>This is a NavBar</NavBarWrapper>
 );
 
 export default NavBar;
