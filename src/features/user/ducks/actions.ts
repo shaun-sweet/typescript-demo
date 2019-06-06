@@ -8,6 +8,7 @@ import faker from "faker";
 
 export const setUserLoggedIn = (user: typeof userInitialState) =>
   action(USER_LOGGED_IN, user);
+  
 export const setUserLoggedOut = () => action(USER_LOGGED_OUT);
 
 const mock = new mockAdapter(axios, { delayResponse: 2000 });
