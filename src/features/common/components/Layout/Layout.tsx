@@ -20,12 +20,11 @@ type ConnectedProps = ReturnType<typeof mapStateToProps>
 
 type ownProps = {} & ConnectedProps & DispatchProps;
 
-const Layout: React.FC<ownProps> = ({ user, logUserIn }) => {
+const Layout: React.FC<ownProps> = ({ logUserIn }) => {
   useEffect(() => {
     logUserIn();
   }, [logUserIn]);
 
-  console.log("current User: ", user);
 
   return (
     <LayoutWrapper>

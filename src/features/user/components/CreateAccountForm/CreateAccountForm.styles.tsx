@@ -14,3 +14,7 @@ export const StyledForm = styled.form<classes>`
     width: 400px;
   }
 `;
+
+export const Row = styled.div`
+  margin-bottom: 1em;
+`;

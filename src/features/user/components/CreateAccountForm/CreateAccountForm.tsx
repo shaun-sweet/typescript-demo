@@ -1,13 +1,8 @@
 import React from "react";
 import * as Yup from "yup";
 import { Formik, FormikProps } from "formik";
-import styled from "styled-components";
 import FormInput from "../../../common/components/FormInput";
-import { StyledForm } from "./CreateAccountForm.styles";
-
-const Row = styled.div`
-  margin-bottom: 1em;
-`;
+import { StyledForm, Row } from "./CreateAccountForm.styles";
 
 const phoneMask = [
   "(",
@@ -87,8 +82,6 @@ const Container: React.SFC = () => {
             isSubmitting
         );
 
-        console.log(values, formikBag);
-
         return (
           <StyledForm onSubmit={formikBag.handleSubmit}>
             <Row>
@@ -166,108 +159,5 @@ const Container: React.SFC = () => {
     />
   );
 };
-
-// const Container = (props: FormikProps<typeof initialFormState>) => {
-//   const {
-//     setFieldValue,
-//     errors,
-//     isSubmitting,
-//     touched,
-//     initialValues,
-//     handleBlur,
-//     handleChange
-//   } = props;
-//   const isSubmitDisabled = Boolean(
-//     errors.email ||
-//       errors.password ||
-//       errors.phoneNumber ||
-//       errors.zip5 ||
-//       isSubmitting
-//   );
-//   console.log(
-//     props,
-//     setFieldValue,
-//     errors,
-//     isSubmitting,
-//     touched,
-//     initialValues,
-//     handleBlur,
-//     handleChange
-//   );
-
-//   return (
-//     <StyledForm>
-//       <Row>
-//         <FormInput
-//           onChange={handleChange}
-//           onBlur={handleBlur}
-//           id="email"
-//           type="email"
-//           name="email"
-//           labelText="Enter email"
-//           touched={touched.email}
-//           value={initialValues.email}
-//           error={errors.email}
-//         />
-//       </Row>
-
-//       <Row>
-//         <FormInput
-//           onChange={handleChange}
-//           onBlur={handleBlur}
-//           id="password"
-//           type="password"
-//           name="password"
-//           labelText="Enter Password"
-//           touched={touched.password}
-//           value={""}
-//           error={errors.password}
-//         />
-//       </Row>
-
-//       <Row>
-//         <FormInput
-//           onChange={handleChange}
-//           onBlur={handleBlur}
-//           id="phoneNumber"
-//           type="tel"
-//           name="phoneNumber"
-//           labelText="Enter Phone Number"
-//           touched={touched.phoneNumber}
-//           value={""}
-//           error={errors.phoneNumber}
-//           textMask={phoneMask}
-//         />
-//       </Row>
-
-//       <Row>
-//         <FormInput
-//           onChange={event => {
-//             const {
-//               target: { name: field, value }
-//             } = event;
-//             const isInputNumber = /^[0-9]+$/.test(value);
-//             const shouldSetFieldValue =
-//               (isInputNumber && value.length <= 5) || value === "";
-
-//             if (shouldSetFieldValue) setFieldValue(field, value);
-//           }}
-//           onBlur={handleBlur}
-//           id="zip5"
-//           type="text"
-//           name="zip5"
-//           labelText="Enter Zip Code"
-//           touched={touched.zip5}
-//           value={""}
-//           error={errors.zip5}
-//         />
-//       </Row>
-
-//       <button type="submit" disabled={isSubmitDisabled}>
-//         Create My Account
-//       </button>
-//     </StyledForm>
-//   );
-// };
 
 export default Container;
