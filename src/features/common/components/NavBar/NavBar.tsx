@@ -7,6 +7,7 @@ type ownProps = {};
 const NavBar: React.FC<ownProps> = props => (
   <NavBarWrapper>
     This is a nav bar
+    <ExampleDisplayUserDetails />
   </NavBarWrapper>
 );
 
